@@ -203,25 +203,25 @@ function Game(tutorial) {
     frameRate(amount);
   }
 
-  this.doTouch = (b) => {
-    if (mouseY / D.S < 120) gamepadbtns[0][0] = b;
-    if (mouseY / D.S > 120) gamepadbtns[0][1] = b;
+  this.doTouch = (b, y) => {
+    if (y / D.S < 120) gamepadbtns[0][0] = b;
+    if (y / D.S > 120) gamepadbtns[0][1] = b;
   }
 
-  this.touchstart = () => {
-    this.doTouch(true);
+  this.touchstart = (e) => {
+    this.doTouch(true, e.touches[0].clientY);
   }
 
-  this.touchend = () => {
-    this.doTouch(false);
+  this.touchend = (e) => {
+    this.doTouch(false, e.touches[0].clientY);
   }
 
-  this.mousedown = () => {
-    this.doTouch(true);
+  this.mousedown = (e) => {
+    this.doTouch(true, e.y);
   }
 
-  this.mouseup = () => {
-    this.doTouch(false);
+  this.mouseup = (e) => {
+    this.doTouch(false, e.y);
   }
 
 }

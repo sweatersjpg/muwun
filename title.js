@@ -250,7 +250,7 @@ function Title(cat, pal, pos, vel, gameover) {
             drawFN = new Game();
     }
 
-    this.toughend = () => {
+    this.touchend = () => {
         if (new Date() - this.timer > 2000 && this.gameover)
             drawFN = new Game();
     }
