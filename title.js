@@ -134,6 +134,11 @@ function Title(cat, pal, pos, vel, gameover) {
     this.menu = (x, y) => {
         let mouse = new Vector(mouseX, mouseY).div(D.S);
 
+        if (isMobile) {
+            let t = "THIS GAME WORKS BETTER WITH A KEYBOARD!";
+            put(t, 200 - t.length * 4, 48, 15);
+        }
+
         if (btn('up') && !pbtn('up')) {
             this.selected--;
             this.addShake(3);
